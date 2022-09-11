@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:honorable_sudoku/sudoku/sudoku.dart';
 import 'package:sudoku_solver_generator/sudoku_solver_generator.dart' as dep;
 
 /// Represents whether a cell should be filled or not to help with visual clarity.
@@ -11,9 +12,10 @@ enum Checkered { empty, filled }
 /// where 0 is the top left of the Sudoku and size^2-1 is the bottom right.
 class IndexedSudoku {
   IndexedSudoku.generate({
-    required int emptySquares,
+    required Difficulty difficulty,
   }) {
-    final generator = dep.SudokuGenerator(emptySquares: emptySquares);
+    final generator =
+        dep.SudokuGenerator(emptySquares: difficulty.emptySquares);
     final unsolved = generator.newSudoku, solved = generator.newSudokuSolved;
 
     for (var i = 0; i < size * size; i++) {
@@ -81,5 +83,18 @@ class IndexedSudoku {
     final boxRow = getBoxRow(index, size: size);
     final boxColumn = getBoxColumn(index, size: size);
     return (boxColumn + boxRow) % 2 == 0 ? Checkered.empty : Checkered.filled;
+  }
+}
+
+extension on Difficulty {
+  int get emptySquares {
+    switch (this) {
+      case Difficulty.easy:
+        return 35;
+      case Difficulty.medium:
+        return 47;
+      case Difficulty.hard:
+        return 50;
+    }
   }
 }

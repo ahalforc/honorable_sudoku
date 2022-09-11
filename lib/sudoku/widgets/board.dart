@@ -2,10 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:honorable_sudoku/blocs/sudoku_bloc.dart';
-import 'package:honorable_sudoku/indexed_sudoku.dart';
-import 'package:honorable_sudoku/widgets/board/cell.dart';
-import 'package:honorable_sudoku/widgets/number_picker.dart';
+import 'package:honorable_sudoku/sudoku/sudoku.dart';
 
 class SudokuGameBoard extends StatelessWidget {
   const SudokuGameBoard({super.key});

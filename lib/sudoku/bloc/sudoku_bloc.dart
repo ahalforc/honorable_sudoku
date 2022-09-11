@@ -1,15 +1,32 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:honorable_sudoku/blocs/sudoku_bloc.dart';
-import 'package:honorable_sudoku/indexed_sudoku.dart';
+import 'package:honorable_sudoku/sudoku/facades/sudoku_local_storage.dart';
+import 'package:honorable_sudoku/sudoku/sudoku.dart';
 import 'package:uuid/uuid.dart';
 
 class SudokuBloc extends Bloc<SudokuEvent, SudokuState> {
   SudokuBloc() : super(SudokuState.empty()) {
+    on<InitializeSudoku>(_onInitializeSudoku);
     on<NewGame>(_onNewGame);
     on<SetNumber>(_onSetNumber);
     on<EraseNumber>(_onEraseNumber);
+  }
+
+    @override
+  void onTransition(Transition<SudokuEvent, SudokuState> transition) {
+    super.onTransition(transition);
+    if (transition.currentState.difficulty != transition.nextState.difficulty) {
+      SudokuLocalStorage.setDifficulty(transition.nextState.difficulty);
+    }
+  }
+
+  FutureOr<void> _onInitializeSudoku(
+    InitializeSudoku event,
+    Emitter<SudokuState> emit,
+  ) async {
+    final difficulty = await SudokuLocalStorage.getDifficulty();
+    add(NewGame(difficulty: difficulty));
   }
 
   FutureOr<void> _onNewGame(
@@ -17,14 +34,14 @@ class SudokuBloc extends Bloc<SudokuEvent, SudokuState> {
     Emitter<SudokuState> emit,
   ) async {
     final generator = IndexedSudoku.generate(
-      emptySquares: event.emptySquares,
+      difficulty: event.difficulty,
     );
 
     emit(
       SudokuState(
         id: const Uuid().v4(),
         size: generator.size,
-        emptySquares: event.emptySquares,
+        difficulty: event.difficulty,
         status: Status.none,
         values: generator.values,
         initialValueIndices: generator.initialValueIndices,
@@ -44,7 +61,7 @@ class SudokuBloc extends Bloc<SudokuEvent, SudokuState> {
       SudokuState(
         id: state.id,
         size: state.size,
-        emptySquares: state.emptySquares,
+        difficulty: state.difficulty,
         status: _getBoardStatus(guessedValues),
         values: state.values,
         initialValueIndices: state.initialValueIndices,
@@ -64,7 +81,7 @@ class SudokuBloc extends Bloc<SudokuEvent, SudokuState> {
       SudokuState(
         id: state.id,
         size: state.size,
-        emptySquares: state.emptySquares,
+        difficulty: state.difficulty,
         status: state.status,
         values: state.values,
         initialValueIndices: state.initialValueIndices,

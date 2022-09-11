@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Color;
+import 'package:honorable_sudoku/theme/theme.dart';
 
-typedef ColorSelectedCallback = void Function(MaterialColor);
+typedef ColorSelectedCallback = void Function(Color);
 
 class ColorPicker extends StatefulWidget {
   const ColorPicker({
@@ -9,47 +10,32 @@ class ColorPicker extends StatefulWidget {
     required this.onColorSelected,
   });
 
-  final MaterialColor initialColor;
-  final void Function(MaterialColor) onColorSelected;
+  final Color initialColor;
+  final ColorSelectedCallback onColorSelected;
 
   @override
   State<ColorPicker> createState() => _ColorPickerState();
 }
 
 class _ColorPickerState extends State<ColorPicker> {
-  static const _availableColors = [
-    Colors.red,
-    Colors.orange,
-    Colors.amber,
-    Colors.yellow,
-    Colors.lightGreen,
-    Colors.green,
-    Colors.lightBlue,
-    Colors.blue,
-    Colors.indigo,
-    Colors.purple,
-  ];
-
-  late MaterialColor _selectedColor;
+  late Color _selectedColor;
 
   @override
   void initState() {
     super.initState();
-    _selectedColor = _availableColors.contains(widget.initialColor)
-        ? widget.initialColor
-        : _availableColors.first;
+    _selectedColor = widget.initialColor;
   }
 
   @override
   Widget build(BuildContext context) {
     return Slider(
       min: 0,
-      max: _availableColors.length.toDouble() - 1,
-      divisions: _availableColors.length - 1,
-      value: _availableColors.indexOf(_selectedColor).toDouble(),
+      max: Color.values.length.toDouble() - 1,
+      divisions: Color.values.length - 1,
+      value: Color.values.indexOf(_selectedColor).toDouble(),
       onChanged: (value) {
         setState(() {
-          _selectedColor = _availableColors[value.toInt()];
+          _selectedColor = Color.values[value.toInt()];
           widget.onColorSelected(_selectedColor);
         });
       },

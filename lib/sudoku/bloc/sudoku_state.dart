@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:honorable_sudoku/sudoku/sudoku.dart';
 
 enum Status { none, invalid, complete }
 
 class SudokuState extends Equatable {
   final String id;
   final int size;
-  final int emptySquares;
+  final Difficulty difficulty;
   final Status status;
 
   final List<int> values;
@@ -16,7 +17,7 @@ class SudokuState extends Equatable {
   const SudokuState({
     required this.id,
     required this.size,
-    required this.emptySquares,
+    required this.difficulty,
     required this.status,
     required this.values,
     required this.initialValueIndices,
@@ -27,7 +28,7 @@ class SudokuState extends Equatable {
   factory SudokuState.empty() => const SudokuState(
         id: '',
         size: 0,
-        emptySquares: 0,
+        difficulty: Difficulty.easy,
         status: Status.none,
         values: [],
         initialValueIndices: {},
@@ -39,7 +40,7 @@ class SudokuState extends Equatable {
   List<Object?> get props => [
         id,
         size,
-        emptySquares,
+        difficulty,
         status,
         values,
         initialValueIndices,

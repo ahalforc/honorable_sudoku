@@ -1,17 +1,20 @@
 import 'package:equatable/equatable.dart';
+import 'package:honorable_sudoku/sudoku/sudoku.dart';
 
 abstract class SudokuEvent extends Equatable {
   @override
   List<Object?> get props => [];
 }
 
-class NewGame extends SudokuEvent {
-  final int emptySquares;
+class InitializeSudoku extends SudokuEvent {}
 
-  NewGame({required this.emptySquares});
+class NewGame extends SudokuEvent {
+  final Difficulty difficulty;
+
+  NewGame({required this.difficulty});
 
   @override
-  List<Object?> get props => [emptySquares];
+  List<Object?> get props => [difficulty];
 }
 
 class SetNumber extends SudokuEvent {

@@ -1,8 +1,10 @@
 import 'dart:math';
 
-import 'package:flutter/material.dart' hide RefreshCallback;
+import 'package:flutter/material.dart' hide RefreshCallback, Color;
+import 'package:honorable_sudoku/sudoku/sudoku.dart';
+import 'package:honorable_sudoku/theme/theme.dart';
 import 'package:honorable_sudoku/widgets/fab/color_picker.dart';
-import 'package:honorable_sudoku/widgets/fab/empty_spaces_picker.dart';
+import 'package:honorable_sudoku/widgets/fab/difficulty_picker.dart';
 import 'package:honorable_sudoku/widgets/fab/refresh_button.dart';
 
 class SettingsFab extends StatefulWidget {
@@ -10,16 +12,16 @@ class SettingsFab extends StatefulWidget {
     super.key,
     required this.initialColor,
     required this.onColor,
-    required this.initialEmptySpaces,
-    required this.onEmptySpaces,
+    required this.initialDifficulty,
+    required this.onDifficulty,
     required this.onRefresh,
   });
 
-  final MaterialColor initialColor;
+  final Color initialColor;
   final ColorSelectedCallback onColor;
 
-  final int initialEmptySpaces;
-  final EmptySpacesSelectedCallback onEmptySpaces;
+  final Difficulty initialDifficulty;
+  final DifficultySelectedCallback onDifficulty;
 
   final RefreshCallback onRefresh;
 
@@ -60,9 +62,9 @@ class _SettingsFabState extends State<SettingsFab> {
           initialColor: widget.initialColor,
           onColorSelected: widget.onColor,
         ),
-        EmptySpacesPicker(
-          initialEmptySpaces: widget.initialEmptySpaces,
-          onEmptySpacesSelected: widget.onEmptySpaces,
+        DifficultyPicker(
+          initialDifficulty: widget.initialDifficulty,
+          onDifficultySelected: widget.onDifficulty,
         ),
         Row(
           mainAxisSize: MainAxisSize.min,

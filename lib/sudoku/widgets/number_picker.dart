@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:honorable_sudoku/blocs/sudoku_bloc.dart';
+import 'package:honorable_sudoku/sudoku/sudoku.dart';
 
 class NumberPicker extends StatelessWidget {
   const NumberPicker({
