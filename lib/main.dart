@@ -87,6 +87,10 @@ class AppBody extends StatelessWidget {
         onColor: (color) {
           context.read<ThemeBloc>().add(SetColorSeed(color));
         },
+        initialMode: context.watch<ThemeBloc>().state.mode,
+        onMode: (mode) {
+          context.read<ThemeBloc>().add(SetMode(mode));
+        },
         initialDifficulty: context.watch<SudokuBloc>().state.difficulty,
         onDifficulty: (difficulty) {
           context.read<SudokuBloc>().add(NewGame(difficulty: difficulty));

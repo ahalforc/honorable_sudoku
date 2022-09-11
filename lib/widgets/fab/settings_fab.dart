@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart' hide RefreshCallback, Color;
 import 'package:honorable_sudoku/sudoku/sudoku.dart';
 import 'package:honorable_sudoku/theme/theme.dart';
-import 'package:honorable_sudoku/widgets/fab/color_picker.dart';
+import 'package:honorable_sudoku/widgets/fab/theme_picker.dart';
 import 'package:honorable_sudoku/widgets/fab/difficulty_picker.dart';
 import 'package:honorable_sudoku/widgets/fab/refresh_button.dart';
 
@@ -12,6 +12,8 @@ class SettingsFab extends StatefulWidget {
     super.key,
     required this.initialColor,
     required this.onColor,
+    required this.initialMode,
+    required this.onMode,
     required this.initialDifficulty,
     required this.onDifficulty,
     required this.onRefresh,
@@ -19,6 +21,9 @@ class SettingsFab extends StatefulWidget {
 
   final Color initialColor;
   final ColorSelectedCallback onColor;
+
+  final Mode initialMode;
+  final ModeSelectedCallback onMode;
 
   final Difficulty initialDifficulty;
   final DifficultySelectedCallback onDifficulty;
@@ -58,9 +63,11 @@ class _SettingsFabState extends State<SettingsFab> {
   Widget _buildSettings() {
     return _PopupContainer(
       children: [
-        ColorPicker(
+        ThemePicker(
           initialColor: widget.initialColor,
+          initialMode: widget.initialMode,
           onColorSelected: widget.onColor,
+          onModeSelected: widget.onMode,
         ),
         DifficultyPicker(
           initialDifficulty: widget.initialDifficulty,
