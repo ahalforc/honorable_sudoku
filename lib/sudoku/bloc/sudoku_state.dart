@@ -54,4 +54,8 @@ class SudokuState extends Equatable {
     }
     return guessedValues[index];
   }
+
+  bool isReadOnly(int index) {
+    return status == Status.complete || initialValueIndices.contains(index);
+  }
 }

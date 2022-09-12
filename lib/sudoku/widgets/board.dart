@@ -14,6 +14,7 @@ class SudokuGameBoard extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final cellSize = min(constraints.maxWidth / state.size - 2, 64.0);
+
         return Stack(
           children: [
             for (var i = 0; i < state.values.length; i++)
@@ -25,30 +26,32 @@ class SudokuGameBoard extends StatelessWidget {
                 width: cellSize,
                 height: cellSize,
                 child: NumberPicker(
-                  index: i,
-                  isReadOnly: state.status == Status.complete ||
-                      state.initialValueIndices.contains(i),
-                  child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 200),
-                    transitionBuilder: (child, animation) {
-                      return ScaleTransition(
-                        scale: animation,
-                        child: child,
-                      );
-                    },
-                    child: Cell(
-                      key:
-                          Key('${state.values[i]} - ${state.guessedValues[i]}'),
-                      value: state.getEffectiveValue(i),
-                      isFilled: IndexedSudoku.getBoxCheckeredFill(
-                            i,
-                            size: state.size,
-                          ) ==
-                          Checkered.filled,
-                      isOutlined: state.status == Status.complete,
-                      isBold: state.initialValueIndices.contains(i),
-                      isLarge: cellSize >= 64,
-                    ),
+                  initialNumber: state.guessedValues[i],
+                  initialPlaceholders: state.placeholderValues[i],
+                  onNumber: state.isReadOnly(i)
+                      ? null
+                      : (number) {
+                          context
+                              .read<SudokuBloc>()
+                              .add(SetNumber(index: i, value: number));
+                        },
+                  onPlaceholder: state.isReadOnly(i)
+                      ? null
+                      : (placeholder) {
+                          // context.read<SudokuBloc>().add(
+                          //   SetPlaceholder(index: i, value: placeholder),
+                          // );
+                        },
+                  child: Cell(
+                    value: state.getEffectiveValue(i),
+                    isFilled: IndexedSudoku.getBoxCheckeredFill(
+                          i,
+                          size: state.size,
+                        ) ==
+                        Checkered.filled,
+                    isOutlined: state.status == Status.complete,
+                    isBold: state.initialValueIndices.contains(i),
+                    isLarge: cellSize >= 64,
                   ),
                 ),
               ),
