@@ -33,7 +33,11 @@ class NumberPicker extends StatelessWidget {
           PopupMenuItem(
             value: i,
             child: Text('$i'),
-          )
+          ),
+        const PopupMenuItem(
+          value: 0,
+          child: Text('X'),
+        ),
       ],
       onSelected: (value) => onNumber?.call(value),
       child: child,

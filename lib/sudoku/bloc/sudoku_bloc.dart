@@ -56,7 +56,11 @@ class SudokuBloc extends Bloc<SudokuEvent, SudokuState> {
     Emitter<SudokuState> emit,
   ) {
     final guessedValues = Map.of(state.guessedValues);
-    guessedValues[event.index] = event.value;
+    if (event.value == 0) {
+      guessedValues.remove(event.index);
+    } else {
+      guessedValues[event.index] = event.value;
+    }
     emit(
       SudokuState(
         id: state.id,
