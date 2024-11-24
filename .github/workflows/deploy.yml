@@ -17,4 +17,4 @@ jobs:
       - name: Build Go PWA assets
         run: make build-github-page
       - name: Deploy to GitHub pages
-        uses: actions/deploy-pages
+        uses: actions/deploy-pages@v4
