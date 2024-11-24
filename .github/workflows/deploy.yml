@@ -12,10 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build Go executable
-        run: make build-server
       - name: Build Go PWA artifacts
-        run: make build-github-page
+        run: make serve-github-page
       - name: Upload page artifacts
         uses: actions/upload-pages-artifact@v3
         with:
