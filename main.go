@@ -14,6 +14,7 @@ func main() {
 	if err := app.GenerateStaticWebsite(".", &app.Handler{
 		Name:        "honorable sudoku",
 		Description: "simply sudoku",
+		Resources:   app.GitHubPages("honorable_sudoku"),
 	}); err != nil {
 		log.Fatal(err)
 	}

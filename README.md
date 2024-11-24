@@ -1,11 +1,11 @@
 # honorable sudoku
 
-honorable sudoku is a simple sudoku app that generates its own puzzles.
+honorable sudoku is a simple sudoku app written with go-app.
 
 # Running the app
 
 To run honorable sudoku, run
 
 ```go
-go run .
+make build
 ```
