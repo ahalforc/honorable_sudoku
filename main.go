@@ -8,11 +8,19 @@ import (
 	"github.com/maxence-charriere/go-app/v10/pkg/app"
 )
 
+var (
+	flagGenerate = flag.Bool("generate", false, "generate the PWA instead of hosting")
+)
+
+func init() {
+	flag.Parse()
+}
+
 func main() {
 	app.Route("/", func() app.Composer { return NewHome() })
 	app.RunWhenOnBrowser()
 
-	if *flag.Bool("generate", false, "Generates the PWA instead of hosting") {
+	if *flagGenerate {
 		if err := app.GenerateStaticWebsite(".", &app.Handler{
 			Name:        "honorable sudoku",
 			Description: "simply sudoku",
