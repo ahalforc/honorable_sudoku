@@ -1,8 +1,11 @@
-# honorable_sudoku
+# honorable sudoku
 
-a simple sudoku app
+honorable sudoku is a simple sudoku app that generates its own puzzles.
 
-## coming soon
+# Running the app
 
-- more intuitive number selection ux
-- placeholders / guesses
+To run honorable sudoku, run
+
+```go
+go run .
+```

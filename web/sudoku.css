@@ -1,0 +1,44 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    text-align: center;
+    margin: 64px;
+}
+
+table {
+    margin: 0px auto;
+}
+
+input {
+    border: 0;
+    border-radius: 8px;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+}
+
+.offset1 {
+    background-color: #fafafa;
+}
+
+.offset2 {
+    background-color: #eeeeee;
+}
+
+.centered {
+    margin: 64px;
+    display: flex;
+    justify-content: center;
+}
+
+.centered button {
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
