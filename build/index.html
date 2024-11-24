@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content>
+    <meta name="description" content="simply sudoku">
+    <meta content="#2d2c2c" name="theme-color">
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta property="og:url" content="https:///honorable_sudoku">
+    <meta property="og:title" content>
+    <meta property="og:description" content="simply sudoku">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://">
+    <title></title>
+    <link rel="icon" href="https://raw.githubusercontent.com/maxence-charriere/go-app/master/docs/web/icon.svg">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/maxence-charriere/go-app/master/docs/web/icon.png">
+    <link rel="manifest" href="/honorable_sudoku/manifest.webmanifest">
+    <link href="/honorable_sudoku/app.css" type="text/css" rel="stylesheet">
+    <link href="/honorable_sudoku/web/sudoku.css" type="text/css" rel="stylesheet">
+    <script defer src="/honorable_sudoku/wasm_exec.js"></script>
+    <script src="/honorable_sudoku/app.js" defer></script>
+  </head>
+  <body>
+    <div>
+      <h1>honorable sudoku</h1>
+      <table>
+        <tr>
+          <td>
+            <input disabled class="offset1" type="text" maxlength="1" value="7">
+          </td>
+          <td>
+            <input disabled="false" class="offset1" type="text" maxlength="1" value>
+          </td>
+          <td>
+            <input maxlength="1" value disabled="false" class="offset1" type="text">
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value="1" disabled>
+          </td>
+          <td>
+            <input maxlength="1" value disabled="false" class="offset2" type="text">
+          </td>
+          <td>
+            <input disabled="false" class="offset2" type="text" maxlength="1" value>
+          </td>
+          <td>
+            <input type="text" maxlength="1" value disabled="false" class="offset1">
+          </td>
+          <td>
+            <input type="text" maxlength="1" value disabled="false" class="offset1">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value disabled="false">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input value disabled="false" class="offset1" type="text" maxlength="1">
+          </td>
+          <td>
+            <input value disabled="false" class="offset1" type="text" maxlength="1">
+          </td>
+          <td>
+            <input disabled="false" class="offset2" type="text" maxlength="1" value>
+          </td>
+          <td>
+            <input type="text" maxlength="1" value disabled="false" class="offset2">
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value="4" disabled>
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value="3" disabled>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" maxlength="1" value="6" disabled class="offset1">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value="4" disabled>
+          </td>
+          <td>
+            <input maxlength="1" value disabled="false" class="offset2" type="text">
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value="8" disabled>
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value="5" disabled>
+          </td>
+          <td>
+            <input disabled="false" class="offset1" type="text" maxlength="1" value>
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value="7" disabled>
+          </td>
+          <td>
+            <input value disabled="false" class="offset1" type="text" maxlength="1">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value="2" disabled>
+          </td>
+          <td>
+            <input type="text" maxlength="1" value disabled="false" class="offset2">
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value="1" disabled>
+          </td>
+          <td>
+            <input maxlength="1" value="6" disabled class="offset1" type="text">
+          </td>
+          <td>
+            <input maxlength="1" value disabled="false" class="offset1" type="text">
+          </td>
+          <td>
+            <input value="7" disabled class="offset1" type="text" maxlength="1">
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value="9" disabled>
+          </td>
+          <td>
+            <input type="text" maxlength="1" value disabled="false" class="offset2">
+          </td>
+          <td>
+            <input disabled="false" class="offset2" type="text" maxlength="1" value>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value="3" disabled>
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value="4" disabled>
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input type="text" maxlength="1" value disabled="false" class="offset1">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value="9" disabled>
+          </td>
+          <td>
+            <input maxlength="1" value disabled="false" class="offset1" type="text">
+          </td>
+          <td>
+            <input type="text" maxlength="1" value disabled="false" class="offset2">
+          </td>
+          <td>
+            <input type="text" maxlength="1" value disabled="false" class="offset2">
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value disabled="false">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input value disabled="false" class="offset2" type="text" maxlength="1">
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value="1" disabled>
+          </td>
+          <td>
+            <input maxlength="1" value="4" disabled class="offset1" type="text">
+          </td>
+          <td>
+            <input disabled class="offset2" type="text" maxlength="1" value="3">
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input maxlength="1" value disabled="false" class="offset2" type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input disabled class="offset1" type="text" maxlength="1" value="5">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input type="text" maxlength="1" value disabled="false" class="offset1">
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value="4" disabled>
+          </td>
+          <td>
+            <input disabled="false" class="offset2" type="text" maxlength="1" value>
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value="6" disabled>
+          </td>
+          <td>
+            <input value disabled="false" class="offset1" type="text" maxlength="1">
+          </td>
+          <td>
+            <input type="text" maxlength="1" value="8" disabled class="offset1">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value="9" disabled>
+          </td>
+          <td>
+            <input maxlength="1" value disabled="false" class="offset1" type="text">
+          </td>
+          <td>
+            <input disabled="false" class="offset1" type="text" maxlength="1" value>
+          </td>
+          <td>
+            <input maxlength="1" value="8" disabled class="offset2" type="text">
+          </td>
+          <td>
+            <input value="5" disabled class="offset2" type="text" maxlength="1">
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value="3" disabled>
+          </td>
+          <td>
+            <input maxlength="1" value disabled="false" class="offset1" type="text">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value="1" disabled>
+          </td>
+          <td>
+            <input maxlength="1" value disabled="false" class="offset1" type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value disabled="false">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value="2" disabled>
+          </td>
+          <td>
+            <input value disabled="false" class="offset2" type="text" maxlength="1">
+          </td>
+          <td>
+            <input class="offset2" type="text" maxlength="1" value="6" disabled>
+          </td>
+          <td>
+            <input value disabled="false" class="offset2" type="text" maxlength="1">
+          </td>
+          <td>
+            <input maxlength="1" value disabled="false" class="offset1" type="text">
+          </td>
+          <td>
+            <input value disabled="false" class="offset1" type="text" maxlength="1">
+          </td>
+          <td>
+            <input class="offset1" type="text" maxlength="1" value disabled="false">
+          </td>
+        </tr>
+      </table>
+      <div class="centered">incomplete</div>
+      <div class="centered">
+        <button>Easy</button>
+        <button>Medium</button>
+        <button>Hard</button>
+        <button>Extreme</button>
+      </div>
+    </div>
+    <aside id="app-wasm-loader" class="goapp-app-info">
+      <img id="app-wasm-loader-icon" class="goapp-logo goapp-spin" alt="wasm loader icon" src="https://raw.githubusercontent.com/maxence-charriere/go-app/master/docs/web/icon.png">
+      <p id="app-wasm-loader-label" class="goapp-label">0%</p>
+    </aside>
+  </body>
+</html>

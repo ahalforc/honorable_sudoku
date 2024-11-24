@@ -11,7 +11,7 @@ func main() {
 	app.Route("/", func() app.Composer { return NewHome() })
 	app.RunWhenOnBrowser()
 
-	if err := app.GenerateStaticWebsite(".", &app.Handler{
+	if err := app.GenerateStaticWebsite("./build", &app.Handler{
 		Name:        "honorable sudoku",
 		Description: "simply sudoku",
 		Resources:   app.GitHubPages("honorable_sudoku"),
