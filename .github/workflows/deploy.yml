@@ -10,8 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Build Go executable
-        run: make build
+        run: make build-server
       - name: Build Go PWA assets
         run: make build-github-page
