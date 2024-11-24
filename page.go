@@ -111,7 +111,7 @@ func (h *home) renderDifficultyButtons() app.UI {
 	}{
 		{
 			"Easy",
-			1,
+			30,
 		},
 		{
 			"Medium",
