@@ -26,7 +26,7 @@ func main() {
 			Description: "simply sudoku",
 			Resources:   app.GitHubPages("honorable_sudoku"),
 			Styles: []string{
-				"./web/sudoku.css",
+				"web/sudoku.css",
 			},
 		}); err != nil {
 			log.Fatal(err)
@@ -36,7 +36,7 @@ func main() {
 			Name:        "Home",
 			Description: "The home page",
 			Styles: []string{
-				"./web/sudoku.css",
+				"web/sudoku.css",
 			},
 		})
 		if err := http.ListenAndServe(":8080", nil); err != nil {
