@@ -1,0 +1,17 @@
+# Builds a the PWA assets needed to host this app on GitHub pages
+
+name: CI
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Go executable
+        run: make build
+      - name: Build Go PWA assets
+        run: make build-github-page
