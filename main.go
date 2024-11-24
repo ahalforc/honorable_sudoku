@@ -15,6 +15,9 @@ func main() {
 		Name:        "honorable sudoku",
 		Description: "simply sudoku",
 		Resources:   app.GitHubPages("honorable_sudoku"),
+		Styles: []string{
+			"/web/sudoku.css",
+		},
 	}); err != nil {
 		log.Fatal(err)
 	}
